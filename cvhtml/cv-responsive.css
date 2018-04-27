@@ -1,0 +1,61 @@
+@media only screen and (max-width: 800px) {
+  body {
+    width: 100%;
+    padding: 10px;
+  }
+
+  header {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    height: auto;
+  }
+
+  header img {
+    width: 128px;
+    height: 164px;
+  }
+
+  header h1 {
+    margin: 5px;
+  }
+
+  nav{
+    display: flex;
+    flex-direction: column;
+  }
+
+  main{
+    display: flex;
+    flex-direction: column;
+  }
+
+  /**************************** EXPERIENCES **********************************/
+
+  #experiences{
+    width: 100%;
+  }
+
+  /**************************** ETUDES **********************************/
+
+  #etudes
+  {
+      width: 100%;
+  }
+
+  /**************************** LANGUES **********************************/
+
+  #langues{
+    width: 100%;
+  }
+
+  #formulaire {
+    width: 100%;
+  }
+
+  .col-25, .col-75, input[type=submit] {
+      width: 100%;
+      margin-top: 0;
+  }
+
+}

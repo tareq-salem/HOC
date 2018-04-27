@@ -1,0 +1,166 @@
+/**************************** BODY **********************************/
+
+body{
+ background:  url("desert.jpg") no-repeat fixed center;
+ width: 60%;
+ margin: 3rem auto 0rem auto;
+}
+
+/**************************** HEADER **********************************/
+
+header
+{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  background-color: red;
+  height:10rem;
+  border: 2px green solid;
+  border:2px red solid;
+  box-shadow: -34px -25px 39px 0px rgba(0,0,0,0.75);
+  overflow: visible;
+}
+
+.profil {
+  background: url("http://i.giphy.com/fsULJFFGv8X3G.gif");
+  background-size: cover;
+  background-position: center;
+
+  -webkit-background-clip: text;
+  color: transparent; // set to transparent, otherwise won't see the background
+
+  font-size: 58px;
+  font-weight: bold;
+  /* line-height: 100px; */
+  text-align: center;
+}
+
+h1{
+  font-size: 3rem;
+  margin: 1rem 0rem 0rem 5rem;
+}
+
+/**************************** NAVIGATION **********************************/
+
+nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: space-around;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background-color: lightgrey;
+  border-radius: 2rem;
+}
+
+/* nav div {
+  display: inline;
+} */
+
+nav a {
+  margin : 0rem 1rem 0rem 1rem;
+  color: black;
+  text-decoration: none;
+}
+
+nav a:hover{
+  color:blue;
+}
+
+/**************************** MAIN **********************************/
+
+main{
+  display: flex;
+  flex-direction: row;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+/**************************** EXPERIENCES **********************************/
+
+#experiences{
+
+  background-color: black;
+  color: white;
+  width:30%;
+  padding: 1rem;
+}
+
+/**************************** ETUDES **********************************/
+
+#etudes
+{
+    background-color: white;
+    width: 40%;
+    padding: 1rem;
+
+}
+
+/**************************** LANGUES **********************************/
+
+#langues{
+  background-color: green;
+  width: 30%;
+  padding: 1rem;
+
+}
+
+/**************************** FORM **********************************/
+
+input[type=text], select, textarea {
+    width: 80%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+input[type=submit] {
+    background-color: green;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: left;
+    width: 100%;
+    margin-top: 6px;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+#formulaire {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+.col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
