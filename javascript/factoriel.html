@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>factorielle</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+      function factorielle(n) {
+          if (n == 0)  {
+            console.log('Fin');
+            return 1;
+
+          }
+
+          else {
+
+              console.log(n + '*')
+              return  n*factorielle(n-1);
+
+          }
+        }
+
+        console.log(factorielle(5));
+
+    </script>
+
+  </body>
+</html>
