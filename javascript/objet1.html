@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <p id:"demo"></p>
+    <script type="text/javascript">
+var n;
+    let thePerson1 = {
+      firstName: "Traeq",
+      lastName: "Salem",
+      age: 37,
+      email: "tareqsalem@hotmail.com",
+      gendre: "male",
+      profil: function() {
+        return  this.firstName + " " + this.lastName + " " + this.age + " " + this.email + " " + this.gendre;
+      }
+    }
+
+    let thePerson2 = {
+      firstName: "joe",
+      lastName: "kal",
+      age: 30,
+      email: "joekal@hotmail.com",
+      gendre: "male",
+      profil: function() {
+        return  this.firstName + " " + this.lastName + " " + this.age + " " + this.email + " " + this.gendre;
+      }
+    }
+
+    let thePerson3 = {
+      firstName: "lolo",
+      lastName: "faa",
+      age: 20,
+      email: "lolofaa@hotmail.com",
+      gendre: "female",
+      profil: function() {
+        return  this.firstName + " " + this.lastName + " " + this.age + " " + this.email + " " + this.gendre;
+      }
+    }
+
+    let people = [
+      thePerson1,
+      thePerson2,
+      thePerson3
+    ];
+
+    console.log(people);
+
+    function nbGirls(tab) {
+        // déclarer variable
+        let girl =0;
+        for (let i = 0; i < tab.length; i++) {
+            let person = tab[i];
+              console.log(person.gendre);
+            if(person.gendre === 'female'){
+              // incrénmentation
+              girl += 1;
+
+            }
+
+          }
+
+
+          console.log(girl);
+          return girl;
+}
+    console.log('Nombre de filles : ', nbGirls(people));
+
+    function nbBoys(tab) {
+        // déclarer variable
+        let boy =0;
+        for (let i = 0; i < tab.length; i++) {
+            let person = tab[i];
+              console.log(person.gendre);
+            if(person.gendre === 'male') {
+              // incrénmentation
+              boy += 1;
+
+            }
+
+          }
+
+
+          console.log(boy);
+          return boy;
+}
+    console.log('Nombre de garçons : ', nbBoys(people));
+
+    // function plusAge(tab) {
+    //
+    //   for (let i =0; i < tab.length; i++) {
+    //
+    //       let person = tab[i];
+    //
+    //         console.log(person.age);
+    //
+    //         if(person.age.thePerson1>)
+    //   }
+    //
+    //
+    //
+    // }
+
+
+function plusAge(tab) {
+
+
+  let monAgeMax = 0;
+  for (var i = 0; i < tab.length; i++) {
+     let person = tab[i];
+
+     if(monAgeMax < person.age) {
+       monAgeMax = person.age;
+
+
+     }
+
+
+  }
+   return monAgeMax;
+}
+
+console.log('Age mini : ', plusAge(people));
+
+function moinsAge(tab) {
+
+
+  let monAgeMini = 0;
+  for (var i = 0; i < tab.length; i++) {
+     let person = tab[i];
+
+     if(person.age > monAgeMini ) {
+       monAgeMini = person.age;
+
+
+     }
+
+
+  }
+   return monAgeMini;
+}
+
+console.log('Age mini : ', moinsAge(people));
+
+    </script>
+
+  </body>
+</html>
