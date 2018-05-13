@@ -14,8 +14,8 @@ var n;
       age: 37,
       email: "tareqsalem@hotmail.com",
       gendre: "male",
-      profil: function() {
-        return  this.firstName + " " + this.lastName + " " + this.age + " " + this.email + " " + this.gendre;
+      fullname: function() {
+        return  this.firstName + " " + this.lastName;
       }
     }
 
@@ -25,8 +25,8 @@ var n;
       age: 30,
       email: "joekal@hotmail.com",
       gendre: "male",
-      profil: function() {
-        return  this.firstName + " " + this.lastName + " " + this.age + " " + this.email + " " + this.gendre;
+      fullname: function() {
+        return  this.firstName + " " + this.lastName;
       }
     }
 
@@ -36,10 +36,12 @@ var n;
       age: 20,
       email: "lolofaa@hotmail.com",
       gendre: "female",
-      profil: function() {
-        return  this.firstName + " " + this.lastName + " " + this.age + " " + this.email + " " + this.gendre;
+      fullname: function() {
+        return  this.firstName + " " + this.lastName;
       }
+
     }
+
 
     let people = [
       thePerson1,
@@ -54,8 +56,7 @@ var n;
         let girl =0;
         for (let i = 0; i < tab.length; i++) {
             let person = tab[i];
-              console.log(person.gendre);
-            if(person.gendre === 'female'){
+             if(person.gendre === 'female'){
               // incrénmentation
               girl += 1;
 
@@ -123,7 +124,7 @@ function plusAge(tab) {
    return monAgeMax;
 }
 
-console.log('Age mini : ', plusAge(people));
+console.log('Age max : ', plusAge(people));
 
 function moinsAge(tab) {
 
@@ -132,14 +133,9 @@ function moinsAge(tab) {
   for (var i = 0; i < tab.length; i++) {
      let person = tab[i];
 
-     if(person.age > monAgeMini ) {
-       monAgeMini = person.age;
-
-
-     }
-
-
   }
+
+  monAgeMini = Math.mini(person.age);
    return monAgeMini;
 }
 
