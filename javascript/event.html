@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>06 DOM</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div clas="row">
+        <h1>Inscription</h1>
+        <form action="/" method="post" class="col-6" id="form__register" novalidate >
+            <div class="form-group is-invalid">
+                <label for="form__register_lastname">Nom*</label>
+                <input type="text" class="form-control" id="form__register_lastname" value="" required>
+                <div class="form-errors"></div>
+            </div>
+            <div class="form-group">
+                <label for="form__register_firstname">Prénom</label>
+                <input type="text" class="form-control" id="form__register_firstname">
+                <div class="form-errors"></div>
+            </div>
+            <div class="form-group">
+                <label>Sexe</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="form__register_gender" id="form__register_gender01" value="M" >
+                    <label class="form-check-label" for="form__register_gender01">
+                        Homme
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="form__register_gender" id="form__register_gender02" value="F">
+                    <label class="form-check-label" for="form__register_gender02">
+                        Femme
+                    </label>
+                </div>
+                <div class="form-check disabled">
+                    <input class="form-check-input" type="radio" name="form__register_gender" id="form__register_gender03" value="A" checked>
+                    <label class="form-check-label" for="form__register_gender03">
+                        Non renseigné
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="form__register_email">Email*</label>
+                <input type="email" class="form-control is-invalid" id="form__register_email" value="ploporange.com" required>
+                <div class="form-errors">
+                    <small class="text-danger">
+                        Cet email n'est pas valide
+                    </small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="form__register_password">Mot de passe*</label>
+                <input type="password" class="form-control" id="form__register_password" required>
+                <div class="form-errors"></div>
+            </div>
+            <div class="form-group">
+                <label for="form__register_password-repeat">Validation mot de passe*</label>
+                <input type="password" class="form-control" id="form__register_password-repeat" required>
+                <div class="form-errors"></div>
+            </div>
+            <div class="form-group row">
+                <label class="col-6" for="form__register_conditions">
+                    Accepter les conditions*
+                </label>
+                <input type="checkbox" class="col-6 form-control" id="form__register_conditions" required>
+                <div class="form-errors col-12">
+                </div>
+            </div>
+            <hr>
+            <button type="submit" class="btn btn-success">Valider</button>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+function checkInputText(options) {
+    // Get Value
+    let input = options.input;
+    let inputValue = input.value;
+    let inputErrorMessage = input.parentElement.querySelector('.form-errors');
+    // Reset Input
+    options.input.classList.remove('is-valid', 'is-invalid');
+    inputErrorMessage.innerHTML = '';
+    // Error default value
+    let error = {
+        hasError : false,
+        className : 'is-valid',
+        text : ''
+    };
+    // Check if required
+    if(options.required && inputValue.length === 0){
+        error.hasError = true;
+        error.text += '<small class="text-danger">Ce champ est requis</small><br>';
+    }
+    if(options.required && inputValue.length > 0) {
+        // Check is letter and - and space only
+        if (!options.regExp.test(inputValue)) {
+            error.hasError = true;
+            error.text += '<small class="text-danger">Le champ n\'est pas valide</small><br>';
+        }
+        // Check string length min
+        if (options.lengthMin && inputValue.length < options.lengthMin) {
+            error.hasError = true;
+            error.text += '<small class="text-danger">Ce champ est trop court</small>';
+        }
+        // Check string length max
+        if (options.lengthMax && inputValue.length > options.lengthMax) {
+            error.hasError = true;
+            error.text += '<small class="text-danger">Ce champ est trop long</small>';
+        }
+    }
+    error.className = (error.hasError)? 'is-invalid' : 'is-valid';
+    // Set new values
+    input.classList.add(error.className);
+    inputErrorMessage.innerHTML = error.text;
+}
+function checkMatch() {
+  //let inputs = document.querySelectorAll('input');
+  //console.log(inputs);
+  let  pass1 = document.querySelector('#form__register_password');
+    console.log(pass1);
+  let pass2 = document.querySelector('#form__register_password-repeat');
+    console.log(pass2);
+
+    let error = {
+        hasError : false,
+        className : 'is-valid',
+        text : ''
+    };
+
+    let inputsErrorMessage = pass1.parentElement.querySelector('.form-errors');
+
+
+    if( pass1.value !== pass2.value){
+      console.log('mot de passe différents');
+
+      error.hasError = true;
+      error.text += '<small class="text-danger">Les mots de passe sont différents</small>';
+
+        // console.log('mot de passe identique')
+        // error.hasError = true;
+        // error.text += '<small class="text-danger">Ce champ est requis</small>';
+
+    }
+
+    error.className = (error.hasError)? 'is-invalid' : 'is-valid';
+    // Set new values
+    pass1.classList.add(error.className);
+    pass2.classList.add(error.className);
+    inputsErrorMessage.innerHTML = error.text;
+}
+
+function checkCheckbox(){
+  let c = document.querySelector('#form__register_conditions');
+
+  if(c.checked == true) {
+
+
+    //valid
+  }
+  else {
+    // pas valid
+  }
+
+}
+
+function checkAllForm() {
+
+        checkInputText({
+            input: document.getElementById('form__register_lastname'),
+            required: true,
+            regExp: new RegExp('^[a-zA-Z- ]+$'),
+            lengthMin: 3,
+            lengthMax: 30
+        });
+        checkInputText({
+            input: document.getElementById('form__register_firstname'),
+            required: true,
+            regExp: new RegExp('^[a-zA-Z- ]+$'),
+            lengthMin: 3,
+            lengthMax: 30
+        });
+        checkInputText({
+            input: document.getElementById('form__register_email'),
+            required: true,
+            regExp: new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/),
+        });
+
+        checkInputText({
+            input: document.getElementById('form__register_password'),
+            required: true,
+            regExp: new RegExp('^[a-zA-Z- ]+$'),
+            lengthMin: 7,
+            lengthMax: 20
+        });
+
+        checkInputText({
+            input: document.getElementById('form__register_password-repeat'),
+            required: true,
+            regExp: new RegExp('^[a-zA-Z- ]+$'),
+            lengthMin: 7,
+            lengthMax: 20
+        });
+
+        checkMatch();
+
+        checkCheckbox();
+}
+
+
+    let form = document.getElementById('form__register'); // on sélectionne notre form
+    console.log("form" , form);
+
+
+    form.addEventListener('submit', onSubmitForm); // on écoute l'event de la soumission
+
+    function onSubmitForm(event) { // fonction exécuté lors de la soumission
+      event.preventDefault(); // on bloque le comportement par défaut
+
+      checkAllForm();
+
+    }
+
+      let inputs = document.querySelectorAll('input');
+
+        for(let i = 0; i < inputs.length; i++){
+            let input = inputs[i];
+            input.addEventListener('change' , onChangeInput);
+            console.log(input);
+        }
+
+
+        function onChangeInput(event) {
+            console.log('new input:' , event.target.value);
+            //checkAllForm();
+
+            if(event.target.id == 'form__register_lastname'){
+              checkInputText({
+                  input: document.getElementById('form__register_lastname'),
+                  required: true,
+                  regExp: new RegExp('^[a-zA-Z- ]+$'),
+                  lengthMin: 3,
+                  lengthMax: 30
+              });
+            }
+
+            else if(event.target.id == 'form__register_firstname'){
+              checkInputText({
+                  input: document.getElementById('form__register_firstname'),
+                  required: true,
+                  regExp: new RegExp('^[a-zA-Z- ]+$'),
+                  lengthMin: 3,
+                  lengthMax: 30
+              });
+            }
+
+            else if (event.target.id == 'form__register_email') {
+              checkInputText({
+                  input: document.getElementById('form__register_email'),
+                  required: true,
+                  regExp: new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/),
+              });
+            }
+
+            else if (event.target.id == 'form__register_password') {
+              checkInputText({
+                input: document.getElementById('form__register_password'),
+                required: true,
+                regExp: new RegExp('^[a-zA-Z- ]+$'),
+                lengthMin: 7,
+                lengthMax: 20
+            });
+          }
+            else if (event.target.id == 'form__register_password-repeat') {
+              checkInputText({
+                input: document.getElementById('form__register_password-repeat'),
+                required: true,
+                regExp: new RegExp('^[a-zA-Z- ]+$'),
+                lengthMin: 7,
+                lengthMax: 20
+            });
+
+          }
+
+
+
+        }
+
+
+        // onChooseCharacter(event) {
+        //   console.log('eve', event)
+        //     event.preventDefault();
+        //
+        //     let characterChosen = event.target.parentElement.dataset.character;
+        //     this.app.onChooseCharacter(characterChosen);
+        //
+        //     console.log('this.app.characterGamer1',this.app.characterGamer1)
+        //
+        //     if (this.app.characterGamer1 != null) {
+        //         event.target.parentElement.parentElement.classList.add("character-playerOne-isselected")
+        //     }
+        //     else{
+        //         event.target.parentElement.parentElement.classList.remove("character-playerOne-isselected")
+        //     }
+        //
+        //     // 2e
+        //
+        // }
+
+
+
+
+
+</script>
+</body>
+</html>
