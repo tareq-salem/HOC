@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mega War 2</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="buttons.css">
+
+
+
+</head>
+<!-- onload="init()" -->
+<body >
+  <div id="app">
+    <section id="homepage">
+
+      <div class="title"><h1>Mega War 2</h1></div>
+      <!--BOF div Names  -->
+        <div class="names">
+          <div class="formSize" id="firstPerson">
+            <form id='myForm2'>
+              <label for="pseudo">Player 1:</label>
+              <input type="text" class="form-control" id="pseudo" name="pseudo" required >
+              <span id="aidePseudo"></span>
+          </form>
+
+
+          </div>
+          <div class="formSize" id="secondPerson">
+          <form id='myForm2'>
+            <label for="pseudo1">Player:2</label>
+            <input type="text" name="pseudo1" class="pseudo1" required>
+            <span id="aidePseudo"></span>
+        </form>
+          </div>
+
+        </div>
+      <!--EOF Names -->
+
+      <!--BOF div Personnages  -->
+      <div class="persons">
+          <h2>Sélection du personnage</h2>
+      <ul id="character-selector" >
+        <li id="hitman">
+          <a href="#" class="character" data-character="P1">
+            <img src="img/hitman.png" alt="Perso 1">
+          </a>
+        </li>
+        <li id="robot">
+          <a href="#" class="character" data-character="P2">
+            <img src="img/robot.png" alt="Perso2">
+          </a>
+        </li>
+        <li id="soldier">
+          <a href="#" class="character" data-character="P3">
+              <img src="img/soldier.png" alt="Perso3">
+          </a>
+        </li>
+        <li id="zombie">
+          <a href="#" class="character" data-character="P4">
+            <img src="img/zombie.png" alt="Perso4">
+          </a>
+        </li>
+      </ul>
+    </div>
+<!-- EOF Div Personages -->
+
+<!--BOF Div Start  -->
+      <div class="start">
+          <a href="" class="eightbit-btn">Play Game</a>
+      </div>
+
+  <!--EOF Div Personnages  -->
+
+    </section>
+    <!-- <section id="game">
+
+    </section>
+    </div>
+
+    <script type="text/javascript" src="app/js/UIHomePage.js"></script>
+    <script type="text/javascript" src="app/js/app.js"></script>
+    <script type="text/javascript">
+        function init(){
+            const app = new App();
+            app.init();
+        } -->
+  <script src="js-game.js"></script>
+</body>
+</html>
