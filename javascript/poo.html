@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+    let Person {
+    Init: function (firstname, lastname, email, age, gender) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.age = age;
+        this.gender = gender;
+    },
+
+    fullName: function() {
+        return this.firstname + ' ' + this.lastname;
+    }
+};
+
+        let p1 = Object.create(Person);
+          p1.init('Alex', 'P', 'plop@gmail.com', 29, 'M');
+
+
+
+        let p2 = Object.create(Person);
+          p2.init('Lili' , 'Pernard' , 'plplp@hotmail.com' , 33 , 'F');
+
+
+
+        let p3 =Object.create(Person);
+        p3.init('Love' , 'Tayson' , 'OlOlO@hotmail.com' , 22 , 'F');
+
+
+
+        let p4 =Object.create(Person);
+        p4.init('Taîs' , 'Cour' , 'OlOlb@hotmail.com' , 28 , 'M');
+
+
+
+console.log(p4.fullName(());
+
+
+
+
+    </script>
+  </body>
+</html>
